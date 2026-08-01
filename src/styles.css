@@ -1,0 +1,127 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------------------
+   Design tokens — "Measurement Instrument"
+   Near-black canvas, hairline plot grid, greyscale ink, and ONE signal colour
+   reserved for data marks and the single primary CTA. Nothing else is coloured.
+   --------------------------------------------------------------------------- */
+@theme {
+  --color-canvas: #0a0b0d;
+  --color-surface: #111316;
+  --color-surface-2: #16191d;
+
+  --color-hairline: rgba(255, 255, 255, 0.07);
+  --color-hairline-strong: rgba(255, 255, 255, 0.14);
+  --color-grid: rgba(255, 255, 255, 0.035);
+
+  --color-ink: #f2f4f7;
+  --color-ink-2: #a7aeb8;
+  /* Measured, not eyeballed: #6b7280 came out at 4.07:1 on the canvas and
+     3.85:1 on the surface — under the 4.5:1 AA floor, and this token carries
+     most of the page's small mono text. #7a8593 clears it on both. */
+  --color-ink-3: #7a8593;
+
+  --color-signal: #ffb224;
+  --color-signal-dim: rgba(255, 178, 36, 0.14);
+
+  --font-sans: "IBM Plex Sans Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --spacing-gridline: 64px;
+}
+
+/* --------------------------------------------------------------------------- */
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* The sticky nav must not cover the target of an in-page jump. */
+    scroll-padding-top: 5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-canvas);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Every numeral on the page is tabular so nothing shifts as values change. */
+  .font-mono,
+  [class*="font-mono"] {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum";
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-signal);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  ::selection {
+    background: var(--color-signal);
+    color: var(--color-canvas);
+  }
+}
+
+@layer components {
+  /* The structural motif: a faint plot grid, faded at the top and bottom edges
+     of whatever it is laid over. Decorative only — always aria-hidden. */
+  .plot-grid {
+    background-image:
+      repeating-linear-gradient(
+        to right,
+        var(--color-grid) 0 1px,
+        transparent 1px var(--spacing-gridline)
+      ),
+      repeating-linear-gradient(
+        to bottom,
+        var(--color-grid) 0 1px,
+        transparent 1px var(--spacing-gridline)
+      );
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      transparent,
+      #000 12%,
+      #000 88%,
+      transparent
+    );
+    mask-image: linear-gradient(
+      to bottom,
+      transparent,
+      #000 12%,
+      #000 88%,
+      transparent
+    );
+  }
+
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    line-height: 1;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-ink-3);
+  }
+}
+
+/* Motion is used only to express cause and effect, and never at all for a
+   visitor who has asked for less of it. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

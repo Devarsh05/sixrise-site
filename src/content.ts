@@ -127,7 +127,7 @@ export const content: SiteContent = {
   name: "SixRise",
 
   links: {
-    github: "https://github.com/Devarsh05/quixly",
+    github: "https://github.com/Devarsh05/sixrise",
   },
 
   nav: [
@@ -151,7 +151,7 @@ export const content: SiteContent = {
     headline: {
       lead: "Gets Shopify merchants recommended by AI shopping assistants",
       engines: ["ChatGPT", "Perplexity", "Gemini"],
-      tail: "and proves the revenue lift.",
+      tail: "and proves the lift.",
     },
 
     primaryCta: "Watch the demo",
@@ -173,7 +173,7 @@ export const content: SiteContent = {
    *    The hosted variants load nothing from the third party until the visitor
    *    actually clicks play.
    */
-  demo: { kind: "placeholder" },
+  demo: { kind: "file", src: "/demo.mp4" },
 
   problem: {
     eyebrow: "The problem",
@@ -330,10 +330,10 @@ export const content: SiteContent = {
 
   footer: {
     /* 3. TODO — your full name, as you want it printed. */
-    name: "TODO: your full name",
+    name: "Devarsh",
     /* 4. TODO — your LinkedIn profile URL. Until it is filled in the footer
      *    renders a visible placeholder chip instead of a broken link. */
-    linkedin: "TODO: https://www.linkedin.com/in/your-handle",
+    linkedin: "https://www.linkedin.com/in/devarsh-prajapati-63a451275/",
     year: 2026,
     note: "SixRise is an embedded Shopify app. This page exists because the product itself lives behind a merchant login.",
   },

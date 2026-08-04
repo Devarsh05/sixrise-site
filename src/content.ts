@@ -173,7 +173,7 @@ export const content: SiteContent = {
    *    The hosted variants load nothing from the third party until the visitor
    *    actually clicks play.
    */
-  demo: { kind: "file", src: "/demo.mp4" },
+  demo: { kind: "file", src: "/demo.mp4", poster: "/demo-poster.png" },
 
   problem: {
     eyebrow: "The problem",

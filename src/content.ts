@@ -250,7 +250,7 @@ export const content: SiteContent = {
     label: "Share of model",
     headline: "Measurement in progress",
     note: "The verifier holds a 168-hour settle window before a reading counts. Below it no engine has re-crawled, so a delta would measure nothing at all — and a number that measures nothing is worse than no number.",
-    dueLabel: "August 4, 2026",
+    dueLabel: "lands ~one week after the fixes go live",
     method:
       "Per-engine recommendation rate over a pinned query panel, measured against a pre-publish baseline.",
   },

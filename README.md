@@ -61,20 +61,6 @@ static output into `dist/`.
 is written anywhere else. It's typed against the `SiteContent` interface in the same file, so a
 half-finished edit fails `npm run typecheck` instead of quietly shipping a blank spot.
 
-Four blanks are marked `TODO`:
-
-| # | Field | What to do |
-|---|---|---|
-| 1 | `demo` | Point it at the video (see below) |
-| 2 | `metric` | Swap `status: "pending"` for the `status: "live"` shape once a settled figure exists — a filled example sits commented out directly above it |
-| 3 | `footer.name` | Your full name, as you want it printed |
-| 4 | `footer.linkedin` | Your LinkedIn profile URL |
-
-Until 3 and 4 are filled, the footer renders a visible dashed placeholder rather than a broken link.
-
-<details>
-<summary><b>Dropping in the demo video</b></summary>
-
 <br/>
 
 Self-hosted (simplest — served same-origin, nothing third-party loads):
